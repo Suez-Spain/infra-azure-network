@@ -107,8 +107,6 @@ pipeline {
                                     env.TF_VAR_environment = ENVIRONMENT
 
                                     sh "az login --service-principal -u ${CLIENT_ID} -p ${CLIENT_SECRET} -t ${TENANT_ID}"
-                                    sh "az config set extension.use_dynamic_install=yes_without_prompt"
-
 
                             }
                             sh "wget -q -O terraform_0.12.30_linux_amd64.zip https://releases.hashicorp.com/terraform/0.12.30/terraform_0.12.30_linux_amd64.zip"
