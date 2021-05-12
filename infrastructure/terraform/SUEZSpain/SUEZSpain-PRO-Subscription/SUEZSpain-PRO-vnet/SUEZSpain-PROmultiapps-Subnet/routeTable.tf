@@ -36,7 +36,7 @@ resource "azurerm_route_table" "tr" {
 
 }
 
-resource "azurerm_subnet_route_table_association" "TRfuntions-subnetFunctions" {
+resource "azurerm_subnet_route_table_association" "tr_subnet_association" {
   subnet_id      = azurerm_subnet.subnet.id
   route_table_id = azurerm_route_table.tr.id
 }
