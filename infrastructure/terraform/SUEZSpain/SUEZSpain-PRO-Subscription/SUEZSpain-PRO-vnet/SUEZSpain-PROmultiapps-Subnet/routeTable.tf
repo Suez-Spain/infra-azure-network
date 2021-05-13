@@ -1,5 +1,5 @@
 resource "azurerm_route_table" "tr" {
-  name                = "${var.prefix}-${upper(var.environment)}-${upper(var.proyecto)}-TRutas"
+  name                = "${var.prefix}-${upper(var.environment)}-${upper(var.project)}-TRutas"
   resource_group_name = data.azurerm_resource_group.vnetrg.name
   location            = data.azurerm_resource_group.vnetrg.location
 
