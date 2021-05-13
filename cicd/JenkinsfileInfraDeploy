@@ -52,7 +52,7 @@ pipeline {
         )
         string(name: "PROJECT", 
             defaultValue: "",
-            description: 'Project name. Used for create path ${TF_DIR}/${TENANT}/${ENVIRONMENT_uppercase}/${RESOURCE}-<strong>${PROJECT.toLowerCase()}</strong>',
+            description: 'Project name. Used for create path ${TF_DIR}/${TENANT}/${ENVIRONMENT_uppercase}/${RESOURCE}-${PROJECT.toLowerCase()}',
             trim: true
         )
         choice(
