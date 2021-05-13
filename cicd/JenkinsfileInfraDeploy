@@ -39,7 +39,7 @@ pipeline {
         )
         string(name: "PROJECT", 
             defaultValue: "",
-            description: "Project name. Used for create directory path.",
+            description: 'Project name. Used for create directory path. SUEZSpain-${ENVIRONMENT_uppercase}-vnet/SUEZSpain-${ENVIRONMENT_uppercase}${PROJECT}-Subnet',
             trim: true)
         choice(
             name: "ACTION",
@@ -76,7 +76,7 @@ pipeline {
                         script {
                             ENVIRONMENT_lowercase = params.ENVIRONMENT.toLowerCase()
                             ENVIRONMENT_uppercase = ENVIRONMENT
-                            WDIR = "${TF_DIR}/SUEZSpain/SUEZSpain-${ENVIRONMENT_uppercase}-vnet/SUEZSpain-${ENVIRONMENT_uppercase}${PROJECT}"
+                            WDIR = "${TF_DIR}/SUEZSpain/SUEZSpain-${ENVIRONMENT_uppercase}-vnet/SUEZSpain-${ENVIRONMENT_uppercase}${PROJECT}-Subnet"
                         }
                     }
                 }
