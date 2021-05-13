@@ -2,8 +2,10 @@
 # tenant_id = ""
 # subscription_id = ""
 # environment = ""
+
 ## From defautl
 # prefix = "SUEZSpain"
+
 project = "multiapps"
 virtual_network_name = "SUEZSpain-PRO-vnet"
 vnet_resource_group_name = "SUEZSpain-RG-PRO-vnet"

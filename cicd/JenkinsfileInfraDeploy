@@ -28,6 +28,12 @@ pipeline {
             description: 'Reload Jenkinsfile and finish.'
         )
         choice(
+            name: "TENANT",
+            choices: [
+                "SUEZSpain"],
+            description: 'Azure Tenant.' 
+        )
+        choice(
             name: "ENVIRONMENT",
             choices: [
                 "DEV",
@@ -37,10 +43,18 @@ pipeline {
                 "PRO"],
             description: 'Environment to manage' 
         )
+        choice(
+            name: "RESOURCE",
+            choices: [
+                "subnet",
+                "vnet"],
+            description: 'Environment to manage' 
+        )
         string(name: "PROJECT", 
             defaultValue: "",
-            description: 'Project name. Used for create directory path. infrastructure/terraform/SUEZSpain/SUEZSpain-${ENVIRONMENT_uppercase}-Subscription/SUEZSpain-${ENVIRONMENT_uppercase}-vnet/SUEZSpain-${ENVIRONMENT_uppercase}${PROJECT}-Subnet',
-            trim: true)
+            description: 'Project name. Used for create path ${TF_DIR}/${TENANT}/${ENVIRONMENT_uppercase}/${RESOURCE}-<strong>${PROJECT.toLowerCase()}</strong>',
+            trim: true
+        )
         choice(
             name: "ACTION",
             choices: [
@@ -49,7 +63,6 @@ pipeline {
                 "Destroy"],
             description: 'Terraform Action to take' 
         )
-        
     }
 
     stages {
@@ -76,7 +89,7 @@ pipeline {
                         script {
                             ENVIRONMENT_lowercase = params.ENVIRONMENT.toLowerCase()
                             ENVIRONMENT_uppercase = ENVIRONMENT
-                            WDIR = "${TF_DIR}/SUEZSpain/SUEZSpain-${ENVIRONMENT_uppercase}-Subscription/SUEZSpain-${ENVIRONMENT_uppercase}-vnet/SUEZSpain-${ENVIRONMENT_uppercase}${PROJECT}-Subnet"
+                            WDIR = "${TF_DIR}/${TENANT}/${ENVIRONMENT_uppercase}/${RESOURCE}-${PROJECT.toLowerCase()}"
                         }
                     }
                 }

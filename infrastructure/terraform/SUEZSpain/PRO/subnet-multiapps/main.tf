@@ -1,3 +1,31 @@
+locals {
+  subnetName      = "${var.prefix}-${upper(var.environment)}${upper(var.project)}-SUBNET"
+}
+
+data "azurerm_resource_group" "vnetrg" {
+  name     = var.vnet_resource_group_name
+}
+
+resource "azurerm_subnet" "subnet" {
+  name                 = local.subnetName
+  resource_group_name  = var.vnet_resource_group_name
+  virtual_network_name = var.virtual_network_name
+  address_prefixes     = [var.subnetCIDR]
+
+### Ejemplo configuración avanzada Azure  
+#   service_endpoints = ["Microsoft.KeyVault"]
+
+#   delegation {
+#     name = "Microsoft.Web.serverFarms"
+
+#     service_delegation {
+#       name    = "Microsoft.Web/serverFarms"
+#       actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
+#     }
+#   }
+###
+}
+
 resource "azurerm_route_table" "tr" {
   name                = "${var.prefix}-${upper(var.environment)}-${upper(var.project)}-TRutas"
   resource_group_name = data.azurerm_resource_group.vnetrg.name
