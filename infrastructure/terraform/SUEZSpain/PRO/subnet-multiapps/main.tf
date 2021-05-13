@@ -1,5 +1,5 @@
 locals {
-  subnetName      = "${var.prefix}-${upper(var.environment)}${upper(var.project)}-SUBNET"
+  subnetName      = "${var.prefix}-${upper(var.environment)}${lower(var.project)}-SUBNET"
 }
 
 data "azurerm_resource_group" "vnetrg" {
