@@ -13,7 +13,7 @@ resource "azurerm_subnet" "subnet" {
   address_prefixes     = [var.subnetCIDR]
 
 ### Ejemplo configuración avanzada Azure  
-#   service_endpoints = ["Microsoft.KeyVault"]
+  service_endpoints = ["Microsoft.KeyVault"]
 
 #   delegation {
 #     name = "Microsoft.Web.serverFarms"
