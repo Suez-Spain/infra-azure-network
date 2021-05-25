@@ -35,18 +35,18 @@ resource "azurerm_route_table" "tr" {
   disable_bgp_route_propagation = false
 
   # For aks internet needed... 
-  route {
-    name                   = "Internet"
-    address_prefix         = "0.0.0.0/0"
-    next_hop_type          = "Internet"
-  }
+#  route {
+#    name                   = "Internet"
+#    address_prefix         = "0.0.0.0/0"
+#    next_hop_type          = "Internet"
+#  }
   
-  # route {
-  #   name                    = "DEFAULT_Paloalto"
-  #   address_prefix          = "0.0.0.0/0"
-  #   next_hop_type           = "VirtualAppliance"
-  #   next_hop_in_ip_address  = "10.36.55.252"
-  # }
+  route {
+    name                    = "DEFAULT_Paloalto"
+    address_prefix          = "0.0.0.0/0"
+    next_hop_type           = "VirtualAppliance"
+    next_hop_in_ip_address  = "10.36.55.252"
+  }
 
   route {
     name                    = "LAN_A"
