@@ -62,6 +62,10 @@ resource "azurerm_route_table" "tr" {
     next_hop_in_ip_address  = "10.36.55.252"
   }
 
+  lifecycle {
+    ignore_changes = all
+  }
+
 }
 
 resource "azurerm_subnet_route_table_association" "tr_subnet_association" {
