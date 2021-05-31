@@ -10,6 +10,6 @@ terraform {
     storage_account_name = "tbackend"
     resource_group_name  = "SUEZSpain-RG-INFRA-DEVOPS"
     container_name       = "tstate"
-    key                  = "NETWORKING/{{ENV}}/subnets/{{PROJECT}}/terraform.tfstate"
+    key                  = "NETWORKING/DEV/subnets/testjavi/terraform.tfstate"
   }
 }
