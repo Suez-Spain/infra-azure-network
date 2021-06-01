@@ -1,7 +1,7 @@
 ## From Jenkins
-# tenant_id = ""
-# subscription_id = ""
-# environment = ""
+tenant_id = "f4a12867-922d-4b9d-bb85-9ee7898512a0"
+subscription_id = "47ddc89d-c6dc-4912-bced-5bb8ee3f3898"
+environment = "DEV"
 
 ## From defautl
 # prefix = "SUEZSpain"
